@@ -75,22 +75,27 @@ require('connection.php');
         $domain_currentDate = new DateTime();
         $domain_interval = $domain_currentDate->diff($domain_endDate);
         $domain_remainingDays = $domain_interval->format('%a');
+        $percent = ($domain_remainingDays/90)*100;
+
+        
         // echo $domain_name." is remaining ".$domain_remainingDays." Days";
-        if ($domain_remainingDays <= 90) {
-          
+        if ($domain_remainingDays <= 90 && $domain_remainingDays >=46) {
+          echo '<div class="progress">
+          <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$domain_remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percent.'%">'.$domain_remainingDays.' Days</div>
+          </div>';
           echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
               echo "<br>";
-        }elseif($domain_remainingDays <= 45){
+        }elseif($domain_remainingDays <= 45 && $domain_remainingDays >=31){
           echo '<div class="progress">
-          <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$domain_remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: 100%">'.$domain_remainingDays.' Days</div>
+          <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$domain_remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percent.'%">'.$domain_remainingDays.' Days</div>
           </div>';
             echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif ($domain_remainingDays <= 30) {
           echo '<div class="progress">
-          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$domain_remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: 100%">'.$domain_remainingDays.' Days</div>
+          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$domain_remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$percent.'%">'.$domain_remainingDays.' Days</div>
           </div>';
-            echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
+            echo "Your  domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
             
             echo "<br>";
         }elseif ($domain_remainingDays === 0) {
@@ -112,14 +117,24 @@ require('connection.php');
         $currentDate = new DateTime();
         $interval = $currentDate->diff($hosting_endDate);
         $remainingDays = $interval->format('%a');
+        $per_days = ($remainingDays/90)*100;
         // echo $hosting_username." is remaining ".$remainingDays." Days";
-        if ($remainingDays <= 90) {
+        if ($remainingDays <= 90 && $domain_remainingDays >=46) {
+          echo '<div class="progress">
+          <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$per_days.'%">'.$remainingDays.' Days</div>
+          </div>';
             echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire in $remainingDays days. Please renew soon.";
             echo "<br>";
-        }elseif($remainingDays <= 45){
+        }elseif($remainingDays <= 45 && $domain_remainingDays >=31){
+          echo '<div class="progress">
+          <div class="progress-bar bg-warning progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$per_days.'%">'.$remainingDays.' Days</div>
+          </div>';
             echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire in $remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif ($remainingDays <= 30) {
+          echo '<div class="progress">
+          <div class="progress-bar bg-danger progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Animated striped example" aria-valuenow="'.$remainingDays.'" aria-valuemin="0" aria-valuemax="100" style="width: '.$per_days.'%">'.$remainingDays.' Days</div>
+          </div>';
             echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire in $remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif ($remainingDays === 0) {

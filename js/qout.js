@@ -1,4 +1,4 @@
-$(document).ready(function(){
+ $(document).ready(function(){
 	$(document).on('click', '#checkAll', function() {          	
 		$(".qout_itemRow").prop("checked", this.checked);
 	});	

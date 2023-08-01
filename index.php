@@ -1,61 +1,65 @@
-<?php
-// session_start();
-require('connection.php');
-require('functions.php');
-$msg='';
-if(isset($_POST['submit'])){
-   $username=get_safe_value($con,$_POST['username']);
-   $password=get_safe_value($con,$_POST['password']);
-
-   $sql="select * from users where username='$username' and password='$password'";
-   $res=mysqli_query($con,$sql);
-   $count=mysqli_num_rows($res);
-   if($count>0){
-      $row=mysqli_fetch_assoc($res);
-      if($row['password'] === $password){
-          $_SESSION['username'] = $row['username'];
-          redirect('home.php');
-          die();
-      }
-   }
-   else{
-      $msg="Please enter correct login details";
-   }
+<?php 
+session_start();
+$loginError = '';
+if (!empty($_POST['email']) && !empty($_POST['pwd'])) {
+	include 'Invoice.php';
+	$invoice = new Invoice();
+	$user = $invoice->loginUsers($_POST['email'], $_POST['pwd']); 
+	if(!empty($user)) {
+		$_SESSION['user'] = $user[0]['first_name']."".$user[0]['last_name'];
+		$_SESSION['userid'] = $user[0]['id'];
+		$_SESSION['email'] = $user[0]['email'];		
+		$_SESSION['address'] = $user[0]['address'];
+		$_SESSION['mobile'] = $user[0]['mobile'];
+		header("Location:home.php");
+	} else {
+		$loginError = "Invalid email or password!";
+	}
 }
 ?>
-<!doctype html>
-<html class="no-js" lang="">
-    
-   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <title>Wave App</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-     
-      <link rel="stylesheet" href="style.css">
-      <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-   </head>
-   <body class="bg-dark">
-      <div class="sufee-login d-flex align-content-center flex-wrap">
-         <div class="container">
-            <div class="login-content">
-               <div class="login-form mt-150"id="form">
-                  <form method="post">
-                     <div class="form-group">
-                        <label>Username</label>
-                        <input id="input" type="text" name="username" class="form-control" placeholder="Username" required>
-                     </div>
-                     <div class="form-group">
-                        <label>Password</label>
-                        <input id="input" style="margin-left: 15px;" type="password" name="password" class="form-control" placeholder="Password" required>
-                     </div>
-                     <button type="submit" name="submit" id="btn">Sign in</button>
-					</form>
-               <div class="field_error"><?php echo $msg?></div>
-               </div>
-            </div>
-         </div>
-      </div>
+
+<script src="js/invoice.js"></script>
+<link href="css/style.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<body class="">
+	
+	<div class="container" style="min-height:500px;">
+	<div class=''>
+	</div>
+<div class="row">	
+	<div class="login-form" id="form">		
+		<h4>Invoice User Login:</h4>		
+		<form method="post" action="">
+			<div class="form-group">
+			<?php if ($loginError ) { ?>
+				<div class="alert alert-warning"><?php echo $loginError; ?></div>
+			<?php } ?>
+			</div>
+			<div class="form-group">
+				<input name="email" id="input" type="email" class="form-control" placeholder="Email address" autofocus="" required>
+			</div>
+			<div class="form-group">
+				<input type="password" id="input" class="form-control" name="pwd" placeholder="Password" required>
+			</div>  
+			<div class="form-group">
+				<button type="submit" id="input" name="login" class="btn btn-info">Login</button>
+			</div>
+		</form>
+				
+	</div>		
+</div>		
+</div>
+
+
+
+
+
+
+
+
+      <script src="assets/js/vendor/jquery-2.1.4.min.js" type="text/javascript"></script>
+      <script src="assets/js/popper.min.js" type="text/javascript"></script>
+      <script src="assets/js/plugins.js" type="text/javascript"></script>
+      <script src="assets/js/main.js" type="text/javascript"></script>
    </body>
 </html>

@@ -1,10 +1,8 @@
 <?php 
-session_start();
 include('header.php');
 include('sidebar.php');
 include 'Invoice.php';
 $invoice = new Invoice();
-// $invoice->checkLoggedIn();
 ?>
 <script src="js/invoice.js"></script>
 <link href="css/style.css" rel="stylesheet">

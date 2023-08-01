@@ -145,19 +145,19 @@ if(isset($_POST['submit'])){
                           <div class="col-lg-6">
                           
                           <h4 class="text-start" >
-                        <input type="text" class="form-control" name="domain_name"/></h4>
+                        <input type="text" class="form-control" value="<?php echo $domain_name ?>" name="domain_name"/></h4>
                           <h4 class="text-start">
-                        <input type="text" class="form-control" name="domain_username"/></h4>
+                        <input type="text" class="form-control" value="<?php echo $domain_username ?>" name="domain_username"/></h4>
                           <h4 class="text-start" >
-                        <input type="text" class="form-control" name="domain_password"/></h4>
+                        <input type="text" class="form-control" value="<?php echo $domain_password ?>" name="domain_password"/></h4>
                           <h4 class="text-start">
-                        <input type="date" class="form-control" name="domain_from"/></h4>
+                        <input type="date" class="form-control" value="<?php echo $domain_ ?>" name="domain_from"/></h4>
                           <h4 class="text-start">
-                        <input type="date" class="form-control" name="domain_to"/></h4>
+                        <input type="date" class="form-control" value="<?php echo $domain_to ?>" name="domain_to"/></h4>
                           <h4 class="text-start">
-                        <input type="text" class="form-control" name="domain_provider"/></h4>
+                        <input type="text" class="form-control" value="<?php echo $domain_provider ?>" name="domain_provider"/></h4>
                           <h4 class="text-start">
-                        <input type="text" class="form-control" name="domain_remark"/></h4>
+                        <input type="text" class="form-control" value="<?php echo $domain_remark ?>" name="domain_remark"/></h4>
                           </div>
                       </div>
                   </div>
@@ -175,19 +175,19 @@ if(isset($_POST['submit'])){
                         </div>
                         <div class="col-lg-6">
                           <h4 class="text-start">
-                            <input type="text" class="form-control" name="hosting_username"/></h4>
+                            <input type="text" class="form-control" value="<?php echo $hosting_username ?>" name="hosting_username"/></h4>
                           <h4 class="text-start" >
-                            <input type="text" class="form-control" name="hosting_password" /></h4>
+                            <input type="text" class="form-control" value="<?php echo $hosting_password ?>" name="hosting_password" /></h4>
                           <h4 class="text-start">
-                            <input type="date" class="form-control" name="hosting_from"/></h4>
+                            <input type="date" class="form-control" value="<?php echo $hosting_from ?>" name="hosting_from"/></h4>
                           <h4 class="text-start">
-                            <input type="date" class="form-control" name="hosting_to" /></h4>
+                            <input type="date" class="form-control" value="<?php echo $hosting_to ?>" name="hosting_to" /></h4>
                           <h4 class="text-start">
-                            <input type="text" class="form-control" name="hosting_provider"/></h4>
+                            <input type="text" class="form-control" value="<?php echo $hosting_provider ?>" name="hosting_provider"/></h4>
                           <h4 class="text-start">
-                            <input type="text" class="form-control" name="hosting_remark"/></h4>
+                            <input type="text" class="form-control" value="<?php echo $hosting_remark ?>" name="hosting_remark"/></h4>
                           <h4 class="text-start" >
-                            <input type="text" class="form-control" name="points" /></h4>
+                            <input type="text" class="form-control" value="<?php echo $points ?>" name="points" /></h4>
                         </div>
                       </div>
                   </div>

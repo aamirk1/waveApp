@@ -10,7 +10,7 @@ The sidebar used in this page to the left provides an example of what your sideb
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
   <!-- Brand Logo -->
   <a href="index3.html" class="brand-link">
-    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+    <img src="dist/img/AdminLTELogo.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
     <span class="brand-text font-weight-light">AdminLTE 3</span>
   </a>
@@ -95,7 +95,7 @@ You can place the pushmenu button inside the brand, simply replace the brand-lin
 ```html
 <div class="brand-link d-flex justify-content-between align-items-center">
   <a class="brand-link" href="index3.html">
-    <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
+    <img src="dist/img/AdminLTELogo.jpeg" alt="AdminLTE Logo" class="brand-image img-circle elevation-3">
     <span class="brand-text font-weight-light">AdminLTE 3</span>
   </a>
   <a class="pushmenu" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>

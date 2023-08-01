@@ -34,6 +34,7 @@ session_start();
         while($row=mysqli_fetch_assoc($query)){
         
         // domain_ details
+        $id = $row['id'];
         $domain_name = $row['domain_name'];
         $domain_startDate = new DateTime($row['domain_from']);
         $domain_endDate = new DateTime($row['domain_to']);
@@ -45,20 +46,20 @@ session_start();
         $domain_remainingDays = $domain_interval->format('%a');
         // echo $domain_name." is remaining ".$domain_remainingDays." Days";
         if ($domain_remainingDays <= 90) {
-            echo "Your domain <a href='#'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
+            echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif($domain_remainingDays <= 45){
-            echo "Your domain $domain_name will expire in $domain_remainingDays days. Please renew soon.";
+            echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif ($domain_remainingDays <= 30) {
-            echo "Your domain $domain_name will expire in $domain_remainingDays days. Please renew soon.";
+            echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire in $domain_remainingDays days. Please renew soon.";
             
             echo "<br>";
         }elseif ($domain_remainingDays === 0) {
-            echo "Your domain $domain_name will expire today. Please renew immediately.";
+            echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> will expire today. Please renew immediately.";
             echo "<br>";
         } elseif ($domain_remainingDays < 0) {
-            echo "Your domain $domain_name has expired. Please renew to continue using the application.";
+            echo "Your domain <a href='edit_website.php?id=$id'>$domain_name</a> has expired. Please renew to continue using the application.";
             echo "<br>";
         }
         // echo "<br>";
@@ -75,19 +76,19 @@ session_start();
         $remainingDays = $interval->format('%a');
         // echo $hosting_username." is remaining ".$remainingDays." Days";
         if ($remainingDays <= 90) {
-            echo "Your hosting $hosting_username will expire in $remainingDays days. Please renew soon.";
+            echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire in $remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif($remainingDays <= 45){
-            echo "Your hosting $hosting_username will expire in $remainingDays days. Please renew soon.";
+            echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire in $remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif ($remainingDays <= 30) {
-            echo "Your hosting $hosting_username will expire in $remainingDays days. Please renew soon.";
+            echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire in $remainingDays days. Please renew soon.";
             echo "<br>";
         }elseif ($remainingDays === 0) {
-            echo "Your hosting $hosting_username will expire today. Please renew immediately.";
+            echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> will expire today. Please renew immediately.";
             echo "<br>";
         } elseif ($remainingDays < 0) {
-            echo "Your hosting $hosting_username has expired. Please renew to continue using the application.";
+            echo "Your hosting <a href='edit_website.php?id=$id'>$hosting_username</a> has expired. Please renew to continue using the application.";
             echo "<br>";
         }
         // Display messages when nearing expiration

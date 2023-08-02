@@ -74,7 +74,7 @@ include('sidebar.php');
                   }
                   
 
-                $ress=mysqli_query($con,"SELECT * FROM company ORDER BY id DESC LIMIT 8");
+                $ress=mysqli_query($con,"SELECT * FROM company ORDER BY id DESC ");
                 $i=1;
                 while($row=mysqli_fetch_assoc($ress)){?>
                 <tr>
@@ -102,6 +102,6 @@ include('sidebar.php');
         </div>
     <!-- /.container-fluid -->
     </section>
-
+ 
 </div>
 <?php include('footer.php')?>

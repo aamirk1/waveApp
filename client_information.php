@@ -180,13 +180,15 @@ if(isset($_GET['type']) && $_GET['type']!=''){
                     mysqli_query($con,$delete_sql);
                   }
                   
-
-                $ress=mysqli_query($con,"SELECT * FROM c_information ORDER BY id DESC LIMIT 3");
+//  $sql = mysqli_query($con,"SELECT c_information.*, company.*FROM c_information INNER JOIN company ON c_information.c_name = company.c_name");
+//  echo $sql;
+                $ress=mysqli_query($con,"SELECT c_information.*, company.*FROM c_information INNER JOIN company ON c_information.c_name = company.id");
+                // $ress=mysqli_query($con,"SELECT * FROM c_information ORDER BY id DESC LIMIT 3");
                 $i=1;
                 while($row=mysqli_fetch_assoc($ress)){?>
                 <tr>
                   <td><?php echo $i++?></td>
-                  <td><?php echo $row['id'].$row['c_name']?></td>
+                  <td><?php echo $row['c_name']?></td>
                   <td><?php echo $row['name']?></td>
                   <td><?php echo $row['designation']?></td>
                   <td><?php echo $row['email']?></td>

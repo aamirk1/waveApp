@@ -79,7 +79,7 @@ include('sidebar.php');
                             }
                             
 
-                            $ress=mysqli_query($con,"SELECT * FROM c_information ORDER BY id DESC");
+                            $ress=mysqli_query($con,"SELECT c_information.*, company.*FROM c_information INNER JOIN company ON c_information.c_name = company.id");
                             $i=1;
                             while($row=mysqli_fetch_assoc($ress)){?>
                             <tr>
